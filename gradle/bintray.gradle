@@ -1,0 +1,32 @@
+subprojects {
+
+    apply plugin: 'com.jfrog.bintray'
+
+    bintray {
+        user = project.hasProperty('bintrayUser') ? project.property('bintrayUser') : System.getenv('BINTRAY_USER')
+        key = project.hasProperty('bintrayApiKey') ? project.property('bintrayApiKey') : System.getenv('BINTRAY_API_KEY')
+        publications = ['mavenJava']
+        pkg {
+            repo = 'steamkit'
+            name = 'steamkit-proto'
+            licenses = ['LGPL-2.1']
+            labels = ['steam', 'steamkit', 'proto', 'protocol buffer']
+
+            websiteUrl = 'https://github.com/dpeger/steamkit-proto'
+            issueTrackerUrl = 'https://github.com/dpeger/steamkit-proto/issues'
+            vcsUrl = 'https://github.com/dpeger/steamkit-proto.git'
+
+            githubRepo = 'dpeger/steamkit-proto'
+            githubReleaseNotesFile = 'README.md'
+
+            publicDownloadNumbers = true
+             
+            version {
+                name = project.version
+            }
+        }
+
+        dryRun = false
+        publish = false
+    }
+}
