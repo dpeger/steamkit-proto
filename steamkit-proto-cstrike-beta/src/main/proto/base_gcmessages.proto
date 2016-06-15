@@ -1,6 +1,6 @@
 import "steammessages.proto";
 
-option java_package = "org.opensteamworks.steamkit.base.proto.cstrike.beta";
+option java_package = "org.opensteamworks.steamkit.proto.cstrike.beta";
 option java_multiple_files = true;
 
 message CSOPartyInvite {

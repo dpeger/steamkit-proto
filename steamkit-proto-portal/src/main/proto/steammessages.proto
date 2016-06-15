@@ -1,4 +1,4 @@
-option java_package = "org.opensteamworks.steamkit.base.proto.portal";
+option java_package = "org.opensteamworks.steamkit.proto.portal";
 option java_multiple_files = true;
 
 message CMsgProtoBufHeader {

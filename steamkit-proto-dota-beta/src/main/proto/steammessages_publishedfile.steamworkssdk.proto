@@ -1,6 +1,6 @@
 import "steammessages_unified_base.steamworkssdk.proto";
 
-option java_package = "org.opensteamworks.steamkit.base.proto.dota.test";
+option java_package = "org.opensteamworks.steamkit.proto.dota.test";
 option java_multiple_files = true;
 
 message CPublishedFile_Subscribe_Request {

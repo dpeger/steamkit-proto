@@ -1,6 +1,6 @@
 import "steammessages_unified_base.steamworkssdk.proto";
 
-option java_package = "org.opensteamworks.steamkit.base.proto.dota";
+option java_package = "org.opensteamworks.steamkit.proto.dota";
 option java_multiple_files = true;
 
 message COAuthToken_ImplicitGrantNoPrompt_Request {
