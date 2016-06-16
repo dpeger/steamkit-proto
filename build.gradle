@@ -30,7 +30,10 @@ subprojects {
         protoc { artifact = 'com.google.protobuf:protoc:3.0.0-beta-2' }
     }
 
-    jar { manifest.attributes provider: 'Daniel H. Peger' }
+    jar {
+        exclude '**/*.proto' 
+        manifest.attributes provider: 'Daniel H. Peger'
+    }
     
     task sourceJar(type: Jar, dependsOn: classes) {
         classifier = 'sources'
@@ -38,5 +41,13 @@ subprojects {
         from protobuf.generatedFilesBaseDir + '/main/java'
     }
     
-    artifacts { archives sourceJar }
+    task protoJar(type: Jar) {
+        classifier = 'protobuf'
+        from sourceSets.main.proto
+    }
+    
+    artifacts {
+        archives sourceJar
+        archives protoJar
+    }
 }
