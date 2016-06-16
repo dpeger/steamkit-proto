@@ -20,10 +20,6 @@ subprojects {
             githubReleaseNotesFile = 'README.md'
 
             publicDownloadNumbers = true
-             
-            version {
-                name = project.version
-            }
         }
 
         dryRun = false
