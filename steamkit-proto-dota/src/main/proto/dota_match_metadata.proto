@@ -10,7 +10,7 @@ message CDOTAMatchMetadataFile {
 	required int32 version = 1;
 	required uint64 match_id = 2;
 	optional .CDOTAMatchMetadata metadata = 3;
-	optional bytes private_metadata = 4;
+	optional bytes private_metadata = 5;
 }
 
 message CDOTAMatchMetadata {
@@ -22,7 +22,7 @@ message CDOTAMatchMetadata {
 
 		message ItemPurchase {
 			optional uint32 item_id = 1;
-			optional uint32 purchase_time = 2;
+			optional int32 purchase_time = 2;
 		}
 
 		message Player {
@@ -47,6 +47,8 @@ message CDOTAMatchMetadata {
 			optional float farm_score = 19;
 			optional float support_score = 20;
 			optional float push_score = 21;
+			repeated uint32 level_up_times = 22;
+			repeated float graph_net_worth = 23;
 		}
 
 		optional uint32 dota_team = 1;
@@ -66,14 +68,17 @@ message CDOTAMatchMetadata {
 }
 
 message CDOTAMatchPrivateMetadata {
-	message Kill {
-		optional int32 timestamp = 1;
-		optional uint32 killer_hero_id = 2;
-		optional uint32 victim_hero_id = 3;
-		repeated uint32 assist_hero_ids = 4;
+	message Team {
+		message Player {
+			optional uint32 account_id = 1;
+			optional uint32 player_slot = 2;
+			optional bytes position_stream = 3;
+		}
+
+		optional uint32 dota_team = 1;
+		repeated .CDOTAMatchPrivateMetadata.Team.Player players = 2;
 	}
 
-	repeated .CDOTAMatchPrivateMetadata.Kill kills = 1;
-	optional string test_string = 100;
+	repeated .CDOTAMatchPrivateMetadata.Team teams = 1;
 }
 
